@@ -19,22 +19,25 @@ class EditManagerPlugin {
             register_widget('EditManagerWidget');
         });
 
-        add_shortcode('register_form', array($this, 'shortcodeAction'));
+
+
     }
+
+
+
+
 
 
 
     public function editProfil(){
 
-
+        $current_user = wp_get_current_user();
 
         $userdata = array(
             'first_name' =>  $_POST['name'],
             'last_name'   =>  $_POST['firstName'],
-            'user_email'  =>  $_POST['email'],
-            'user_login'  => $_POST['email'],
             'user_pass'   =>  $_POST['password'],
-            'ID'          =>  session_id(),
+            'ID'          =>  $current_user->ID,
 
 
         );
@@ -43,9 +46,6 @@ class EditManagerPlugin {
 
 
 
-//    public function shortcodeAction(){
-//        the_widget('memberManager-widget');
-//    }
 }
 
 
@@ -56,3 +56,4 @@ register_uninstall_hook(__FILE__, array('EditManagerPlugin','uninstall'));
 add_action( 'plugins_loaded', function(){
     new EditManagerPlugin();
 } );
+

@@ -4,6 +4,7 @@
 /*
 Plugin Name: Inscription
 Description: Plugin pour enregistrer l'utilisateur
+Author: Lou Lemarié
 Version: 1.0
 
 */

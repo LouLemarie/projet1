@@ -1,8 +1,10 @@
 <?php
 
 
-class EditManagerWidget extends WP_Widget{
-    public function __construct(){
+class EditManagerWidget extends WP_Widget
+{
+    public function __construct()
+    {
         $options = array(
             'classname' => 'editmanagerwidget',
             'description' => 'Outil d\'édition de profil.'
@@ -12,8 +14,8 @@ class EditManagerWidget extends WP_Widget{
     }
 
 
-
-    public function widget($args, $instance){
+    public function widget($args, $instance)
+    {
 
         echo $args['before_widget'];
         echo $args['before_title'];
@@ -22,15 +24,13 @@ class EditManagerWidget extends WP_Widget{
 
         ?>
         <form method="post" action="">
-           <?php
-           $current_user = wp_get_current_user();
+            <?php
+            $current_user = wp_get_current_user();
 
             echo 'User last name: ' . $current_user->user_lastname . '<br>';
             echo '<label for="name">Nom :</label><input type="text" name="name" required><br>';
             echo 'User first name: ' . $current_user->user_firstname . '<br>';
             echo '<label for="firstName">Prénom :</label><input type="text" name="firstName" required><br>';
-            echo 'User email: ' . $current_user->user_email . '<br>';
-            echo '<label for="email">Email :</label><input type="email" name="email" required><br>';
             echo 'Password :' . $current_user->user_pass_md5 . '<br>';
             echo '<label for="password">Mot de passe</label><input type="password" name="password" required><br>';
             ?>
@@ -39,21 +39,6 @@ class EditManagerWidget extends WP_Widget{
         <?php
         echo $args['after_widget'];
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
